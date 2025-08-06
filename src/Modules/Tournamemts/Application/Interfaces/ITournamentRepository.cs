@@ -6,13 +6,13 @@ using torneos.src.Modules.Teams.Domain.Entities;
 
 namespace torneos.src.Modules.Teams.Application.Interfaces
 {
-    public interface ITeamRepository
+    public interface ITournamentRepository
     {
-    Task<Team?> GetByIdAsync(int id);
-    Task<IEnumerable<Team>> GetAllAsync();
-    void Add(Team entity);
-    void Remove(Team entity);
-    void Update(Team entity);
+    Task<Tournament?> GetByIdAsync(int id);
+    Task<IEnumerable<Tournament>> GetAllAsync();
+    void Add(Tournament entity);
+    void Remove(Tournament entity);
+    void Update(Tournament entity);
     Task SaveAsync();
     }
 }

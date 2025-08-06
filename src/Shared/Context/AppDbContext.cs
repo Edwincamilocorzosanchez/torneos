@@ -13,7 +13,7 @@ namespace torneos.src.Shared.Context
     {
     }
 
-    public DbSet<Team> Teams => Set<Team>();
+    public DbSet<Tournament> Tournaments => Set<Tournament>();
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);

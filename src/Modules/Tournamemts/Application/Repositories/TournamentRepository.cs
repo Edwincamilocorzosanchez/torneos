@@ -9,35 +9,35 @@ using torneos.src.Shared.Context;
 
 namespace torneos.src.Modules.Teams.Application.Repositories
 {
-    public class TeamRepository : ITeamRepository
+    public class TournamentRepository : ITournamentRepository
     {
         private readonly AppDbContext _context;
 
-    public TeamRepository(AppDbContext context)
+    public TournamentRepository(AppDbContext context)
     {
         _context = context;
     }
 
-    public async Task<Team?> GetByIdAsync(int id)
+    public async Task<Tournament?> GetByIdAsync(int id)
     {
-        return await _context.Teams // opcional, si quieres traer las tareas asociadas
+        return await _context.Tournaments // opcional, si quieres traer las tareas asociadas
             .FirstOrDefaultAsync(u => u.Id == id);
     }
 
-    public async Task<IEnumerable<Team>> GetAllAsync()
+    public async Task<IEnumerable<Tournament>> GetAllAsync()
     {
-        return await _context.Teams.ToListAsync();
+        return await _context.Tournaments.ToListAsync();
     }
 
-    public void Add(Team entity)
+    public void Add(Tournament entity)
     {
-        _context.Teams.Add(entity);
+        _context.Tournaments.Add(entity);
     }
 
-    public void Remove(Team entity) =>
-        _context.Teams.Remove(entity);
+    public void Remove(Tournament entity) =>
+        _context.Tournaments.Remove(entity);
 
-    public void Update(Team entity) =>
+    public void Update(Tournament entity) =>
         _context.SaveChanges();
     public async Task SaveAsync() =>
     await _context.SaveChangesAsync(); // ⬅️ Implementación

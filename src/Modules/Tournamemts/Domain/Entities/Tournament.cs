@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace torneos.src.Modules.Teams.Domain.Entities
 {
-    public class Team
+    public class Tournament
     {
         public int Id { get; set; }
         public string Nombre { get; set; } = string.Empty;

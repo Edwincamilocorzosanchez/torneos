@@ -8,11 +8,11 @@ using torneos.src.Modules.Teams.Domain.Entities;
 
 namespace torneos.src.Shared.Configurations
 {
-    public class TeamConfiguration
+    public class TournamentConfiguration
     {
-        public void Configure(EntityTypeBuilder<Team> builder)
+        public void Configure(EntityTypeBuilder<Tournament> builder)
         {
-            builder.ToTable("team");
+            builder.ToTable("tournament");
 
             builder.HasKey(t => t.Id);
 

@@ -1,0 +1,45 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+using torneos.src.Modules.Players.Application.Interfaces;
+using torneos.src.Modules.Players.Domain.Entities;
+using torneos.src.Shared.Context;
+
+namespace torneos.src.Modules.Players.Infrastructure.Repositories
+{
+    public class PlayerRepository : IPlayerRepository
+    {
+        private readonly AppDbContext _context;
+
+        public PlayerRepository(AppDbContext context)
+        {
+            _context = context;
+        }
+
+        public async Task<Player?> GetByIdAsync(int id)
+        {
+            return await _context.Players // opcional, si quieres traer las tareas asociadas
+                .FirstOrDefaultAsync(u => u.Id == id);
+        }
+
+        public async Task<IEnumerable<Player>> GetAllAsync()
+        {
+            return await _context.Players.ToListAsync();
+        }
+
+        public void Add(Player entity)
+        {
+            _context.Players.Add(entity);
+        }
+
+        public void Remove(Player entity) =>
+            _context.Players.Remove(entity);
+
+        public void Update(Player entity) =>
+            _context.SaveChanges();
+        public async Task SaveAsync() =>
+        await _context.SaveChangesAsync(); // ⬅️ Implementació
+    }
+}

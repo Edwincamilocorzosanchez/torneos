@@ -2,9 +2,10 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using torneos.src.Modules.Teams.Application.Repositories;
+using torneos.src.Modules.Teams.Infraestructure.Repositories;
 using torneos.src.Modules.Teams.Application.Services;
 using torneos.src.Modules.Teams.Domain.Entities;
+using torneos.src.Modules.Tournaments.Infraestructure;
 using torneos.src.Shared.Context;
 
 namespace torneos.src.Modules.Teams.UI;
@@ -26,11 +27,11 @@ public class MenuTournaments
         while (!salir)
         {
             Console.WriteLine("\n--- MENÚ CRUD ---");
-            Console.WriteLine("1. Crear Usuario");
-            Console.WriteLine("2. Listar Usuarios");
-            Console.WriteLine("3. Actualizar Usuario");
-            Console.WriteLine("4. Eliminar Usuario");
-            Console.WriteLine("5. Buscar Usuario por ID");
+            Console.WriteLine("1. Crear torneo");
+            Console.WriteLine("2. Listar torneos ");
+            Console.WriteLine("3. Actualizar torneo");
+            Console.WriteLine("4. Eliminar torneo");
+            Console.WriteLine("5. Buscar torneo por ID");
             Console.WriteLine("6. Salir");
             Console.Write("Opción: ");
             int op = int.Parse(Console.ReadLine()!);

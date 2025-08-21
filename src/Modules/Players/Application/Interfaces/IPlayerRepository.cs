@@ -10,9 +10,9 @@ namespace torneos.src.Modules.Players.Application.Interfaces
     {
         Task<Player?> GetByIdAsync(int id);
         Task<IEnumerable<Player>> GetAllAsync();
-        void Add(Player entity);
-        void Remove(Player entity);
-        void Update(Player entity);
+        Task AddAsync(Player entity);
+        Task RemoveAsync(Player entity);
+        Task UpdateAsync(Player entity);
         Task SaveAsync();
     }
 }

@@ -828,6 +828,22 @@
           }
         }
       },
+      "SixLabors.ImageSharp/3.1.11": {
+        "type": "package",
+        "compile": {
+          "lib/net6.0/SixLabors.ImageSharp.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net6.0/SixLabors.ImageSharp.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "build/SixLabors.ImageSharp.props": {}
+        }
+      },
       "System.CodeDom/6.0.0": {
         "type": "package",
         "compile": {
@@ -2737,6 +2753,22 @@
         "pomelo.entityframeworkcore.mysql.nuspec"
       ]
     },
+    "SixLabors.ImageSharp/3.1.11": {
+      "sha512": "JfPLyigLthuE50yi6tMt7Amrenr/fA31t2CvJyhy/kQmfulIBAqo5T/YFUSRHtuYPXRSaUHygFeh6Qd933EoSw==",
+      "type": "package",
+      "path": "sixlabors.imagesharp/3.1.11",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "build/SixLabors.ImageSharp.props",
+        "lib/net6.0/SixLabors.ImageSharp.dll",
+        "lib/net6.0/SixLabors.ImageSharp.xml",
+        "sixlabors.imagesharp.128.png",
+        "sixlabors.imagesharp.3.1.11.nupkg.sha512",
+        "sixlabors.imagesharp.nuspec"
+      ]
+    },
     "System.CodeDom/6.0.0": {
       "sha512": "CPc6tWO1LAer3IzfZufDBRL+UZQcj5uS207NHALQzP84Vp/z6wF0Aa0YZImOQY8iStY0A2zI/e3ihKNPfUm8XA==",
       "type": "package",
@@ -3133,7 +3165,8 @@
       "Microsoft.Extensions.Configuration >= 9.0.7",
       "Microsoft.Extensions.Configuration.EnvironmentVariables >= 9.0.7",
       "Microsoft.Extensions.Configuration.Json >= 9.0.7",
-      "Pomelo.EntityFrameworkCore.MySql >= 9.0.0-rc.1.efcore.9.0.0"
+      "Pomelo.EntityFrameworkCore.MySql >= 9.0.0-rc.1.efcore.9.0.0",
+      "SixLabors.ImageSharp >= 3.1.11"
     ]
   },
   "packageFolders": {
@@ -3142,11 +3175,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\LENOVO\\proyectos\\torneos\\torneos.csproj",
+      "projectUniqueName": "C:\\Users\\LENOVO\\Documents\\proyectos\\torneos\\torneos.csproj",
       "projectName": "torneos",
-      "projectPath": "C:\\Users\\LENOVO\\proyectos\\torneos\\torneos.csproj",
+      "projectPath": "C:\\Users\\LENOVO\\Documents\\proyectos\\torneos\\torneos.csproj",
       "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\LENOVO\\proyectos\\torneos\\obj\\",
+      "outputPath": "C:\\Users\\LENOVO\\Documents\\proyectos\\torneos\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\LENOVO\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -3204,6 +3237,10 @@
           "Pomelo.EntityFrameworkCore.MySql": {
             "target": "Package",
             "version": "[9.0.0-rc.1.efcore.9.0.0, )"
+          },
+          "SixLabors.ImageSharp": {
+            "target": "Package",
+            "version": "[3.1.11, )"
           }
         },
         "imports": [

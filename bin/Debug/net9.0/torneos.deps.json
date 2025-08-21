@@ -13,7 +13,8 @@
           "Microsoft.Extensions.Configuration": "9.0.7",
           "Microsoft.Extensions.Configuration.EnvironmentVariables": "9.0.7",
           "Microsoft.Extensions.Configuration.Json": "9.0.7",
-          "Pomelo.EntityFrameworkCore.MySql": "9.0.0-rc.1.efcore.9.0.0"
+          "Pomelo.EntityFrameworkCore.MySql": "9.0.0-rc.1.efcore.9.0.0",
+          "SixLabors.ImageSharp": "3.1.11"
         },
         "runtime": {
           "torneos.dll": {}
@@ -611,6 +612,14 @@
           }
         }
       },
+      "SixLabors.ImageSharp/3.1.11": {
+        "runtime": {
+          "lib/net6.0/SixLabors.ImageSharp.dll": {
+            "assemblyVersion": "3.0.0.0",
+            "fileVersion": "3.1.11.0"
+          }
+        }
+      },
       "System.CodeDom/6.0.0": {
         "runtime": {
           "lib/net6.0/System.CodeDom.dll": {
@@ -941,6 +950,13 @@
       "sha512": "sha512-jJ3aVp2FWamRA4Db6IJnt6MsC5A45vfLWDpy8VIiEV/CQiDFDgQb7Fk8O7Zyb8BVDhU6TfEXHujVBsFYxbwQbQ==",
       "path": "pomelo.entityframeworkcore.mysql/9.0.0-rc.1.efcore.9.0.0",
       "hashPath": "pomelo.entityframeworkcore.mysql.9.0.0-rc.1.efcore.9.0.0.nupkg.sha512"
+    },
+    "SixLabors.ImageSharp/3.1.11": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-JfPLyigLthuE50yi6tMt7Amrenr/fA31t2CvJyhy/kQmfulIBAqo5T/YFUSRHtuYPXRSaUHygFeh6Qd933EoSw==",
+      "path": "sixlabors.imagesharp/3.1.11",
+      "hashPath": "sixlabors.imagesharp.3.1.11.nupkg.sha512"
     },
     "System.CodeDom/6.0.0": {
       "type": "package",

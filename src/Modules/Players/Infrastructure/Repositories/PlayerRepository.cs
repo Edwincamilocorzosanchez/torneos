@@ -29,17 +29,22 @@ namespace torneos.src.Modules.Players.Infrastructure.Repositories
             return await _context.Players.ToListAsync();
         }
 
-        public void Add(Player entity)
+        public async Task AddAsync(Player entity)
         {
-            _context.Players.Add(entity);
+            await _context.Players.AddAsync(entity);
         }
 
-        public void Remove(Player entity) =>
-            _context.Players.Remove(entity);
 
-        public void Update(Player entity) =>
-            _context.SaveChanges();
+
+        public Task UpdateAsync(Player entity) =>
+            _context.SaveChangesAsync();
         public async Task SaveAsync() =>
         await _context.SaveChangesAsync(); // ⬅️ Implementació
+
+        Task IPlayerRepository.RemoveAsync(Player entity)
+        {
+            _context.Players.Remove(entity);
+            return Task.CompletedTask;
+        }
     }
 }

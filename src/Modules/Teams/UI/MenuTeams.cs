@@ -131,6 +131,14 @@ public class MenuTeams
     {
         Console.Write("Nombre: ");
         var nombre = Console.ReadLine();
+        Console.Write("Pais: ");
+        var pais = Console.ReadLine();
+        Console.Write("Ciudad: ");
+        var ciudad = Console.ReadLine();
+        Console.Write("Goles a Favor: ");
+        var golesAFavor = int.Parse(Console.ReadLine()!);
+        Console.Write("Goles en Contra: ");
+        var golesEnContra = int.Parse(Console.ReadLine()!);
 
         if (string.IsNullOrWhiteSpace(nombre))
         {
@@ -138,7 +146,7 @@ public class MenuTeams
             return;
         }
 
-        var team = new Team { Nombre = nombre.Trim() };
+        var team = new Team { Nombre = nombre.Trim(), Pais = pais.Trim(), Ciudad = ciudad.Trim(), GolesAFavor = golesAFavor, GolesEnContra = golesEnContra };
         await _service.RegistrarEquipoAsync(team);
         Console.WriteLine("Equipo creado.");
     }
@@ -188,88 +196,6 @@ public class MenuTeams
         Console.WriteLine("Cuerpo médico creado.");
     }
     
-    private async Task ListarEquiposAsync()
-    {
-        var equipos = await _service.ConsultarEquiposAsync();
-        if (!equipos.Any())
-        {
-            Console.WriteLine("No hay equipos registrados.");
-            return;
 
-        }
-
-        Console.WriteLine("Equipos:");
-        foreach (var e in equipos)
-            Console.WriteLine($"ID: {e.Id} | Nombre: {e.Nombre}");
-    }
-    private async Task ActualizarEquipoAsync()
-    {
-        Console.Write("ID a actualizar: ");
-        if (!int.TryParse(Console.ReadLine(), out var id))
-        {
-            Console.WriteLine("ID inválido.");
-            return;
-        }
-
-        var existente = await _service.ObtenerEquipoPorIdAsync(id);
-        if (existente is null)
-        {
-            Console.WriteLine("Equipo no encontrado.");
-            return;
-        }
-
-        Console.Write($"Nuevo nombre (actual: {existente.Nombre}): ");
-        var nuevoNombre = Console.ReadLine();
-        if (string.IsNullOrWhiteSpace(nuevoNombre))
-        {
-            Console.WriteLine("El nombre es obligatorio.");
-            return;
-        }
-        else
-        {
-            existente.Nombre = nuevoNombre;
-        }
-
-        await _service.ActualizarEquipoAsync(id, existente);
-        Console.WriteLine("Equipo actualizado.");
-    }
-    private async Task EliminarEquipoAsync()
-    {
-        Console.Write("ID a eliminar: ");
-        if (!int.TryParse(Console.ReadLine(), out var id))
-        {
-            Console.WriteLine("ID inválido.");
-            return;
-        }
-
-        var existente = await _service.ObtenerEquipoPorIdAsync(id);
-        if (existente is null)
-        {
-            Console.WriteLine("Equipo no encontrado.");
-            return;
-        }
-
-        await _service.EliminarEquipoAsync(id);
-        Console.WriteLine("🗑️ Equipo eliminado.");
-
-    }
-    private async Task BuscarEquipoPorIdAsync()
-    {
-        Console.Write("ID: ");
-        if (!int.TryParse(Console.ReadLine(), out var id))
-        {
-            Console.WriteLine("ID inválido.");
-            return;
-        }
-
-        var equipo = await _service.ObtenerEquipoPorIdAsync(id);
-        if (equipo is null)
-        {
-            Console.WriteLine("No encontrado.");
-            return;
-        }
-
-        Console.WriteLine($"Equipo: ID={equipo.Id} | Nombre={equipo.Nombre}");
-    }
 
 }

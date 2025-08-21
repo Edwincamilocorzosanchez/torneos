@@ -20,7 +20,7 @@ namespace torneos.src.Modules.Players.Application.Services
         return _repo.GetAllAsync();
     }
 
-    public async Task RegistrarJugadorAsync(string nombre)
+    public async Task RegistrarJugadorAsync(string nombre, int edad, string posicion, decimal valorMercado, int asistencias, int goles)
     {
         var existentes = await _repo.GetAllAsync();
         if (existentes.Any(u => u.Nombre == nombre))
@@ -29,12 +29,17 @@ namespace torneos.src.Modules.Players.Application.Services
         var player = new Player
         {
             Nombre = nombre,
+            Edad = edad,
+            Posicion = posicion,
+            ValorMercado = valorMercado,
+            Asistencias = asistencias,
+            Goles = goles
         };
 
-        _repo.Add(player);
-        _repo.Update(player); 
+        await _repo.AddAsync(player);
+        await _repo.SaveAsync();
     }
-    public async Task ActualizarJugador(int id, string nuevoNombre)
+    public async Task ActualizarJugador(int id, string nuevoNombre, int nuevaEdad, string nuevaPosicion, decimal nuevoValorMercado, int nuevasAsistencias, int nuevosGoles)
     {
         var player = await _repo.GetByIdAsync(id);
 
@@ -42,8 +47,13 @@ namespace torneos.src.Modules.Players.Application.Services
             throw new Exception($"❌ Jugador con ID {id} no encontrado.");
 
         player.Nombre = nuevoNombre;
+        player.Edad = nuevaEdad;
+        player.Posicion = nuevaPosicion;
+        player.ValorMercado = nuevoValorMercado;
+        player.Asistencias = nuevasAsistencias;
+        player.Goles = nuevosGoles;
 
-        _repo.Update(player);
+        await _repo.UpdateAsync(player);
         await _repo.SaveAsync();
     }
 
@@ -52,7 +62,7 @@ namespace torneos.src.Modules.Players.Application.Services
         var player = await _repo.GetByIdAsync(id);
         if (player == null)
             throw new Exception($"❌ Jugador con ID {id} no encontrado.");
-        _repo.Remove(player);
+        await _repo.RemoveAsync(player);
         await _repo.SaveAsync();
     }
 

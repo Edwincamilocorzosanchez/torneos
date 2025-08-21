@@ -6,10 +6,16 @@ using torneos.src.Modules.Teams.UI;
 using torneos.src.Modules.Tournaments.Infraestructure;
 using torneos.src.Shared.Helpers;
 using torneos.src.Modules.Players.UI;
+using System.Diagnostics;
+using torneos.src.Modules.Transferencias.UI;
+using torneos.src.Modules.Transferencias.Application.Interfaces;
+using torneos.src.Modules.Transferencias.Application.Services;
 
 var context = DbContextFactory.Create();
 var repo = new TournamentRepository(context);
 var service = new TournamentService(repo);
+
+
 
 bool salir = false;
 while (!salir)
@@ -30,18 +36,16 @@ while (!salir)
             await new MenuTournaments(context).RenderMenu();
             break;
         case 1:
-            await new MenuTeams (context). MenuMostrar();
+            await new MenuTeams(context).MenuMostrar();
             break;
         case 2:
             await new MenuPlayer(context).Menu();
             break;
         case 3:
-            // Aquí puedes agregar el código para las transferencias
-            Console.WriteLine("Funcionalidad de transferencias aún no implementada.");
-            salir = true;
+            await new TransferenciasMenu(context).MostrarMenuAsync();
             break;
         case 4:
-            // Aquí puedes agregar el código para las estadísticas
+            // Aquí puedes agregar el código para las estadística
             Console.WriteLine("Funcionalidad de estadísticas aún no implementada.");
             break;
         case 5:
@@ -52,3 +56,4 @@ while (!salir)
             break;
     }
 }
+

@@ -9,6 +9,7 @@ using torneos.src.Modules.Players.Domain.Entities;
 using torneos.src.Modules.Teams.Domain.Entities;
 
 using torneos.src.Modules.TechnicalStaff.Domain.Entities;
+using torneos.src.Modules.Transferencias.Domain.Entities;
 
 namespace torneos.src.Shared.Context
 {
@@ -24,6 +25,7 @@ namespace torneos.src.Shared.Context
     public DbSet<CuerpoMedico> CuerposMedicos => Set<CuerpoMedico>();
     public DbSet<Inscripcion> Inscripciones => Set<Inscripcion>();
     public DbSet<Player> Players => Set<Player>();
+    public DbSet<Transferencia> Transferencias => Set<Transferencia>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

@@ -39,8 +39,18 @@ namespace torneos.src.Modules.Players.UI
                     case 1:
                         Console.Write("Nombre: ");
                         string? nombre = Console.ReadLine();
-                        await service.RegistrarJugadorAsync(nombre!);
-                        Console.WriteLine("✅ Torneo creado.");
+                        Console.Write("Edad: ");
+                        int edad = int.Parse(Console.ReadLine()!);
+                        Console.Write("Posición: ");
+                        string? posicion = Console.ReadLine();
+                        Console.Write("Valor de Mercado: ");
+                        decimal valorMercado = decimal.Parse(Console.ReadLine()!);
+                        Console.Write("Asistencias: ");
+                        int asistencias = int.Parse(Console.ReadLine()!);
+                        Console.Write("Goles: ");
+                        int goles = int.Parse(Console.ReadLine()!);
+                        await service.RegistrarJugadorAsync(nombre!, edad, posicion!, valorMercado, asistencias, goles);
+                        Console.WriteLine("✅ Jugador creado.");
                         break;
                     case 2:
                         var lista = await service.ConsultarJugadoresAsync();
@@ -52,7 +62,17 @@ namespace torneos.src.Modules.Players.UI
                         int idUp = int.Parse(Console.ReadLine()!);
                         Console.Write("Nuevo nombre: ");
                         string? nuevoNombre = Console.ReadLine();
-                        await service.ActualizarJugador(idUp, nuevoNombre!);
+                        Console.Write("Nueva edad: ");
+                        int nuevaEdad = int.Parse(Console.ReadLine()!);
+                        Console.Write("Nueva posición: ");
+                        string? nuevaPosicion = Console.ReadLine();
+                        Console.Write("Nuevo valor de mercado: ");
+                        decimal nuevoValorMercado = decimal.Parse(Console.ReadLine()!);
+                        Console.Write("Nuevas asistencias: ");
+                        int nuevasAsistencias = int.Parse(Console.ReadLine()!);
+                        Console.Write("Nuevos goles: ");
+                        int nuevosGoles = int.Parse(Console.ReadLine()!);
+                        await service.ActualizarJugador(idUp, nuevoNombre!, nuevaEdad, nuevaPosicion!, nuevoValorMercado, nuevasAsistencias, nuevosGoles);
                         Console.WriteLine("✏️ Actualizado.");
                         break;
                     case 4:

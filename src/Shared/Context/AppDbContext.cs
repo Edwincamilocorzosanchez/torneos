@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using torneos.src.Modules.InscripcionTorneo.Domain.Entities;
 using torneos.src.Modules.MedicalBody.Domain.Entities;
 using torneos.src.Modules.Players.Domain.Entities;
+using torneos.src.Modules.Statistic.Domain.Entities;
 using torneos.src.Modules.Teams.Domain.Entities;
 
 using torneos.src.Modules.TechnicalStaff.Domain.Entities;
@@ -26,6 +27,7 @@ namespace torneos.src.Shared.Context
     public DbSet<Inscripcion> Inscripciones => Set<Inscripcion>();
     public DbSet<Player> Players => Set<Player>();
     public DbSet<Transferencia> Transferencias => Set<Transferencia>();
+    public DbSet<Statistics> Statistics => Set<Statistics>();
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

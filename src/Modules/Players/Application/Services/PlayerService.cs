@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using torneos.src.Modules.Players.Application.Interfaces;
 using torneos.src.Modules.Players.Domain.Entities;
+using torneos.src.Modules.Teams.Domain.Entities;
 
 namespace torneos.src.Modules.Players.Application.Services
 {
@@ -20,7 +21,7 @@ namespace torneos.src.Modules.Players.Application.Services
         return _repo.GetAllAsync();
     }
 
-    public async Task RegistrarJugadorAsync(string nombre, int edad, string posicion, decimal valorMercado, int asistencias, int goles)
+    public async Task RegistrarJugadorAsync(string nombre, int edad, string posicion, decimal valorMercado, int asistencias, int goles, int? teamId)
     {
         var existentes = await _repo.GetAllAsync();
         if (existentes.Any(u => u.Nombre == nombre))
@@ -33,7 +34,8 @@ namespace torneos.src.Modules.Players.Application.Services
             Posicion = posicion,
             ValorMercado = valorMercado,
             Asistencias = asistencias,
-            Goles = goles
+            Goles = goles,
+            TeamId = teamId ,
         };
 
         await _repo.AddAsync(player);
@@ -52,6 +54,7 @@ namespace torneos.src.Modules.Players.Application.Services
         player.ValorMercado = nuevoValorMercado;
         player.Asistencias = nuevasAsistencias;
         player.Goles = nuevosGoles;
+        
 
         await _repo.UpdateAsync(player);
         await _repo.SaveAsync();
@@ -70,5 +73,6 @@ namespace torneos.src.Modules.Players.Application.Services
     {
         return await _repo.GetByIdAsync(id);
     }
+
     }
 }

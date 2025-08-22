@@ -49,7 +49,9 @@ namespace torneos.src.Modules.Players.UI
                         int asistencias = int.Parse(Console.ReadLine()!);
                         Console.Write("Goles: ");
                         int goles = int.Parse(Console.ReadLine()!);
-                        await service.RegistrarJugadorAsync(nombre!, edad, posicion!, valorMercado, asistencias, goles);
+                        Console.Write("ID del equipo (opcional): ");
+                        int? teamId = int.TryParse(Console.ReadLine(), out var tempId) ? tempId : null;
+                        await service.RegistrarJugadorAsync(nombre!, edad, posicion!, valorMercado, asistencias, goles, teamId);
                         Console.WriteLine("✅ Jugador creado.");
                         break;
                     case 2:

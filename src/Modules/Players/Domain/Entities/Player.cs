@@ -17,7 +17,7 @@ namespace torneos.src.Modules.Players.Domain.Entities
     public int Goles { get; set; }
 
     // Relación con Team
-    public int TeamId { get; set; }  // clave foránea
+    public int? TeamId { get; set; }  // clave foránea
     public Team? Team { get; set; }
     }
 }

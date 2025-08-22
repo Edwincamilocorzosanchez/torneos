@@ -12,6 +12,7 @@ namespace torneos.src.Modules.Transferencias.Application.Services
 {
     public class TransferenciaService : ITransferenciaService
 {
+    
     private readonly IPlayerRepository _jugadorRepository;
     private readonly ITeamRepository _equipoRepository;
     private readonly ITransferenciaRepository _transferenciaRepository;
@@ -42,7 +43,7 @@ namespace torneos.src.Modules.Transferencias.Application.Services
     var transferencia = new Transferencia
     {
         PlayerId = jugadorId,
-        TeamOrigenId = jugador.TeamId,
+        TeamOrigenId = jugador.TeamId ?? null,
         TeamDestinoId = equipoDestinoId,
         Monto = monto,
         Tipo = "Compra",
@@ -50,9 +51,18 @@ namespace torneos.src.Modules.Transferencias.Application.Services
     };
 
     await _transferenciaRepository.AddAsync(transferencia);
+    
+    try
+    {
+        await _transferenciaRepository.SaveChangesAsync();
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"Error al guardar transferencia: {ex.InnerException?.Message}");
+    }
 
     // Cambiar equipo
-    jugador.TeamId = equipoDestinoId;
+            jugador.TeamId = equipoDestinoId;
     await _jugadorRepository.UpdateAsync(jugador);
 }
 
@@ -67,17 +77,16 @@ public async Task PrestarJugadorAsync(int jugadorId, int equipoDestinoId, DateTi
     var transferencia = new Transferencia
     {
         PlayerId = jugadorId,
-        TeamOrigenId = jugador.TeamId,
+        TeamOrigenId = jugador.TeamId ?? null,
         TeamDestinoId = equipoDestinoId,
         Tipo = "Préstamo",
         Fecha = DateTime.Now,
-        // FechaFin = fechaFin   ← si agregas este campo en la entidad
+
     };
 
     await _transferenciaRepository.AddAsync(transferencia);
 
-    // Nota: No cambiamos el TeamId del jugador para reflejar que sigue
-    // siendo parte del equipo de origen, solo está prestado
+
 }
 
 public async Task<IEnumerable<Transferencia?>> ObtenerTransferenciasPorJugadorAsync(int jugadorId)

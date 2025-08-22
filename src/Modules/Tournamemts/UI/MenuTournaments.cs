@@ -41,7 +41,13 @@ public class MenuTournaments
                 case 1:
                     Console.Write("Nombre: ");
                     string? nombre = Console.ReadLine();
-                    await service.RegistrarTorneoAsync(nombre!);
+                    Console.Write("Fecha de inicio (yyyy-mm-dd): ");
+                    DateTime fechaInicio = DateTime.Parse(Console.ReadLine()!);
+                    Console.Write("Fecha de fin (yyyy-mm-dd): ");
+                    DateTime fechaFin = DateTime.Parse(Console.ReadLine()!);
+                    Console.Write("Ubicación: ");
+                    string? ubicacion = Console.ReadLine();
+                    await service.RegistrarTorneoAsync(nombre!, fechaInicio, fechaFin, ubicacion!);
                     Console.WriteLine("✅ Torneo creado.");
                     break;
                 case 2:
@@ -54,7 +60,13 @@ public class MenuTournaments
                     int idUp = int.Parse(Console.ReadLine()!);
                     Console.Write("Nuevo nombre: ");
                     string? nuevoNombre = Console.ReadLine();
-                    await service.ActualizarTorneo(idUp, nuevoNombre!);
+                    Console.Write("Nueva fecha de inicio (yyyy-mm-dd): ");
+                    DateTime nuevaFechaInicio = DateTime.Parse(Console.ReadLine()!);
+                    Console.Write("Nueva fecha de fin (yyyy-mm-dd): ");
+                    DateTime nuevaFechaFin = DateTime.Parse(Console.ReadLine()!);
+                    Console.Write("Nueva ubicación: ");
+                    string? nuevaUbicacion = Console.ReadLine();
+                    await service.ActualizarTorneo(idUp, nuevoNombre!, nuevaFechaInicio, nuevaFechaFin, nuevaUbicacion!);
                     Console.WriteLine("✏️ Actualizado.");
                     break;
                 case 4:

@@ -30,8 +30,23 @@ namespace torneos.src.Modules.Transferencias.Infrastructure.Repositories
 
         public async Task AddAsync(Transferencia transferencia)
         {
-            await _context.Transferencias.AddAsync(transferencia);
-            await _context.SaveChangesAsync();
+try
+{
+    _context.Transferencias.Add(transferencia);
+    await _context.SaveChangesAsync();
+    Console.WriteLine("✅ Transferencia registrada con éxito.");
+}
+catch (Exception ex)
+{
+    Console.WriteLine("❌ Error al guardar transferencia:");
+    Console.WriteLine(ex.Message);
+
+    if (ex.InnerException != null)
+    {
+        Console.WriteLine("➡ InnerException:");
+        Console.WriteLine(ex.InnerException.Message);
+    }
+}
         }
 
         public async Task UpdateAsync(Transferencia transferencia)
@@ -48,6 +63,11 @@ namespace torneos.src.Modules.Transferencias.Infrastructure.Repositories
                 _context.Transferencias.Remove(transferencia);
                 await _context.SaveChangesAsync();
             }
+        }
+
+        public Task SaveChangesAsync()
+        {
+            return _context.SaveChangesAsync();
         }
     }
 }

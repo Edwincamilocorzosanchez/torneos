@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
@@ -20,7 +21,7 @@ namespace torneos.src.Shared.Configurations
                 .IsRequired();
 
             builder.Property(t => t.TeamOrigenId)
-                .IsRequired();
+                .IsRequired(false);
 
             builder.Property(t => t.TeamDestinoId)
                 .IsRequired();

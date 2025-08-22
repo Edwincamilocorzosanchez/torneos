@@ -10,6 +10,10 @@ using System.Diagnostics;
 using torneos.src.Modules.Transferencias.UI;
 using torneos.src.Modules.Transferencias.Application.Interfaces;
 using torneos.src.Modules.Transferencias.Application.Services;
+using torneos.src.Modules.Statistic.Application.Interfaces;
+using torneos.src.Modules.Statistic.Application.Services;
+using torneos.src.Modules.Statistic.UI;
+using torneos.src.Modules.Statistic.Infrastructure.Repositories;
 
 var context = DbContextFactory.Create();
 var repo = new TournamentRepository(context);
@@ -45,8 +49,8 @@ while (!salir)
             await new TransferenciasMenu(context).MostrarMenuAsync();
             break;
         case 4:
-            // Aquí puedes agregar el código para las estadística
-            Console.WriteLine("Funcionalidad de estadísticas aún no implementada.");
+            var statistics = new MenuStatistics(context);
+            statistics.Show();
             break;
         case 5:
             salir = true;

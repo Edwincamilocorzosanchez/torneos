@@ -13,5 +13,6 @@ namespace torneos.src.Modules.Transferencias.Application.Interfaces
         Task AddAsync(Transferencia transferencia);
         Task UpdateAsync(Transferencia transferencia);
         Task DeleteAsync(int id);
+        Task SaveChangesAsync();
     }
 }

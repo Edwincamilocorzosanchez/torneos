@@ -2,45 +2,15 @@
 
 Este proyecto es un sistema de gestión deportiva desarrollado en .NET, diseñado con una arquitectura modular y escalable que permite gestionar torneos, jugadores, cuerpos técnicos, estadísticas, transferencias y más.
 
-📂 Estructura del Proyecto
 src/
-│
 ├── Modules/                  # Módulos independientes de negocio
 │   ├── InscripcionTorneo     # Gestión de inscripciones a torneos
-│   │    ├── Application       # Casos de uso y lógica de aplicación
-│   │    ├── Domain            # Entidades y lógica de dominio
-│   │    ├── Infrastructure    # Acceso a datos e integración externa
-│   │    └── UI 
 │   ├── MedicalBody           # Registro del cuerpo médico
-│   │    ├── Application       # Casos de uso y lógica de aplicación
-│   │    ├── Domain            # Entidades y lógica de dominio
-│   │    ├── Infrastructure    # Acceso a datos e integración externa
-│   │    └── UI 
 │   ├── Players               # Administración de jugadores
-│   │    ├── Application       # Casos de uso y lógica de aplicación
-│   │    ├── Domain            # Entidades y lógica de dominio
-│   │    ├── Infrastructure    # Acceso a datos e integración externa
-│   │    └── UI 
 │   ├── Statistic             # Estadísticas de partidos/jugadores
-│   │    ├── Application       # Casos de uso y lógica de aplicación
-│   │    ├── Domain            # Entidades y lógica de dominio
-│   │    ├── Infrastructure    # Acceso a datos e integración externa
-│   │    └── UI 
 │   ├── Teams                 # Equipos registrados
-│   │    ├── Application       # Casos de uso y lógica de aplicación
-│   │    ├── Domain            # Entidades y lógica de dominio
-│   │    ├── Infrastructure    # Acceso a datos e integración externa
-│   │    └── UI 
 │   ├── TechnicalStaff        # Gestión de entrenadores y asistentes
-│   │    ├── Application       # Casos de uso y lógica de aplicación
-│   │    ├── Domain            # Entidades y lógica de dominio
-│   │    ├── Infrastructure    # Acceso a datos e integración externa
-│   │    └── UI 
 │   ├── Tournaments           # Organización de torneos
-│   │    ├── Application       # Casos de uso y lógica de aplicación
-│   │    ├── Domain            # Entidades y lógica de dominio
-│   │    ├── Infrastructure    # Acceso a datos e integración externa
-│   │    └── UI             
 │   └── Transferencias        # Gestión de transferencias de jugadores
 │       ├── Application       # Casos de uso y lógica de aplicación
 │       ├── Domain            # Entidades y lógica de dominio
@@ -51,7 +21,7 @@ src/
 │   ├── Configurations        # Configuración de entidades para EF Core
 │   ├── Context               # DbContext principal de la aplicación
 │   └── Helpers               # Utilidades y helpers comunes
-│
+
 
 🛠️ Tecnologías Utilizadas
 
